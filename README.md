@@ -1,0 +1,14 @@
+# almond-user 9 PS7646.3550N 0028085968384 amz-p,release-keys
+- manufacturer: amazon
+- platform: almond
+- codename: almond
+- flavor: almond-user
+- release: 9
+- id: PS7646.3550N
+- incremental: 0028085968516
+- tags: amz-p,release-keys
+- fingerprint: Amazon/almond/almond:9/PS7646.3550N/0028085968384:user/amz-p,release-keys
+- is_ab: false
+- brand: Amazon
+- branch: almond-user-9-PS7646.3550N-0028085968384-amz-p,release-keys
+- repo: amazon_almond_dump
