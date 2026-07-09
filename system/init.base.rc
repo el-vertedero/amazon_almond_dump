@@ -1,0 +1,6 @@
+
+on property:ro.vendor.product.model_trigger=*
+     setprop ro.product.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.vendor.model ${ro.vendor.product.model_trigger}
+     setprop ro.vendor.product.model ${ro.vendor.product.model_trigger}
+
