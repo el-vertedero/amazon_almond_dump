@@ -1,0 +1,172 @@
+#line 1 "device/amazon/almond/dolby_ms12/install/sepolicy/property_contexts"
+ro.vendor.lib.libdolbyms12                  u:object_r:vendor_aml_dby_prop:s0
+
+#line 1 "vendor/amazon/conn/chipsets/sepolicy/property_contexts"
+#
+# Copyright (c) 2021-2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+persist.vendor.conn.chip        u:object_r:conn_chipset_prop:s0
+vendor.sys.conn.action          u:object_r:conn_chipset_prop:s0
+vendor.conn.chip                u:object_r:conn_chipset_prop:s0
+#line 1 "vendor/amazon/tools/devicetools/amzn_mmc_utils/sepolicy/property_contexts"
+# Copyright (c) 2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+
+sys.amzn_bsp_diag.emmc.         u:object_r:system_prop:s0
+
+#line 1 "device/amazon/common/sepolicy/amazon_hal/property_contexts"
+#
+# Copyright (c) 2018-2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+ro.amzn_drm. u:object_r:amzn_drm_prop:s0
+ro.amzn_xo.value u:object_r:amzn_xo_prop:s0
+sys.amzn_drm.backup.status u:object_r:amzn_drmprov_prop:s0
+vendor.amzn_drm.backup.trigger u:object_r:amzn_drmprov_prop:s0
+vendor.amzn_drm.clear_cache.pr u:object_r:amzn_drmprov_prop:s0
+# Below is different from the above amzn_drm_prop, because we need
+# vendor_init to set the property.
+ro.vendor.amzn_drm_restore_from u:object_r:amzn_drm_config_prop:s0
+# vendor_init need to set it to 0 (default value),
+# and amzn_drmprov_check needs to read it
+persist.drmprov_check.no_skip u:object_r:amzn_drm_config_prop:s0
+persist.sys.amzn_drm.skip_mask u:object_r:amzn_drm_prop:s0
+persist.wifi.rssi.             u:object_r:persist_wifi_rssi_prop:s0
+persist.vendor.zigbee. u:object_r:amzn_zigbee_prop:s0
+persist.zigbee. u:object_r:amzn_zigbee_prop:s0
+vendor.zigbee. u:object_r:amzn_zigbee_prop:s0
+zigbee. u:object_r:amzn_zigbee_prop:s0
+ro.audio.xml_effect.path u:object_r:audio_config_prop:s0 exact string
+#line 1 "device/amlogictv/common_t950x4/sepolicy/amzn/property_contexts"
+ro.radio.               u:object_r:media_prop:s0
+ro.vendor.nrdp.         u:object_r:netflix_prop:s0
+vendor.nrdp.            u:object_r:vendor_aml_oem_prop:s0
+vendor.media.omx            u:object_r:vendor_aml_oem_prop:s0
+odm.hold.wakelock.idme  u:object_r:vendor_aml_power_prop:s0
+ro.nrdp.oemmodel        u:object_r:vendor_aml_oem_prop:s0
+ro.product.oemmodel        u:object_r:vendor_aml_oem_prop:s0
+vendor.usb.debugging.init  u:object_r:vendor_aml_oem_prop:s0
+persist.odm.disable_rescue u:object_r:vendor_aml_oem_prop:s0
+ro.product.region          u:object_r:vendor_aml_oem_prop:s0
+odm.locale                 u:object_r:vendor_aml_oem_prop:s0
+vendor.amz.pq.           u:object_r:vendor_aml_oem_prop:s0
+# fos_flags
+vendor.amazon.fos_flags.wipe u:object_r:shell_prop:s0
+# wifi_log_levels
+vendor.wifi.wlan0.       u:object_r:wifi_log_levels_prop:s0
+
+# Amazon primrose
+service.bootvideo                 u:object_r:media_prop:s0
+ro.config.media_vol_steps         u:object_r:media_prop:s0
+tv.dtv.tf.disable                 u:object_r:media_prop:s0
+ro.crypto.volume.                 u:object_r:media_prop:s0
+service.adb.tcp.prot              u:object_r:vendor_aml_oem_prop:s0
+vendor.afbac.enable               u:object_r:vendor_aml_oem_prop:s0
+libplayer.                        u:object_r:vendor_aml_oem_prop:s0
+ro.product.model                  u:object_r:vendor_aml_oem_prop:s0
+ro.boot.selinux                   u:object_r:vendor_aml_oem_prop:s0
+ro.vendor.product.model           u:object_r:vendor_aml_oem_prop:s0
+ro.product.vendor.model           u:object_r:vendor_aml_oem_prop:s0
+ro.sys.hdmiin.enable              u:object_r:vendor_aml_oem_prop:s0
+persist.fw.force_adoptable        u:object_r:vendor_aml_oem_prop:s0
+dalvik.vm.skpheapgrowthlimit      u:object_r:vendor_aml_oem_prop:s0
+dalvik.vm.skpheapmaxfree          u:object_r:vendor_aml_oem_prop:s0
+dalvik.vm.skpheapminfree          u:object_r:vendor_aml_oem_prop:s0
+dalvik.vm.skpheapstartsize        u:object_r:vendor_aml_oem_prop:s0
+dalvik.vm.skpheaptargetutil       u:object_r:vendor_aml_oem_prop:s0
+ro.amazon.sys.fbs-size            u:object_r:vendor_aml_oem_prop:s0
+ro.sys.sdcardfs                   u:object_r:vendor_aml_oem_prop:s0
+mbx.hdmiin.switchfull             u:object_r:vendor_aml_oem_prop:s0
+mbx.hdmiin.videolayer             u:object_r:vendor_aml_oem_prop:s0
+ro.product.drm.                   u:object_r:vendor_aml_oem_prop:s0
+ro.poweron.src                    u:object_r:vendor_aml_oem_prop:s0
+ro.lmk.                           u:object_r:vendor_aml_oem_prop:s0
+ro.statsd.enable                  u:object_r:vendor_aml_oem_prop:s0
+ro.build.optee_version            u:object_r:vendor_aml_oem_prop:s0
+pm.dexopt.shared                  u:object_r:vendor_aml_oem_prop:s0
+pm.dexopt.downgrade_after_inactive_days   u:object_r:vendor_aml_oem_prop:s0
+sys.poweron.src                   u:object_r:powerctl_prop:s0
+sys.str.delay_before_str          u:object_r:powerctl_prop:s0
+
+persist.audio.debug.              u:object_r:audio_debug_prop:s0
+ro.vendor.screencontrol.          u:object_r:screencontrol_prop:s0
+ro.odm.ir.protocol                u:object_r:vendor_aml_ir_prop:s0
+
+persist.sys.usb.debugging      u:object_r:debug_prop:s0
+persist.sys.usb.debug_visible  u:object_r:debug_prop:s0
+ro.vendor.product.model_trigger             u:object_r:vendor_aml_trigger_prop:s0
+ro.product.model.ready                      u:object_r:vendor_aml_trigger_prop:s0
+sys.usb.start                  u:object_r:amazon_prop:s0
+sys.usb.debugging              u:object_r:amazon_prop:s0
+sys.usb.debug_visible          u:object_r:amazon_prop:s0
+
+ro.boot.secure_cpu      u:object_r:exported_default_prop:s0
+
+persist.vendor.system_control.treble  u:object_r:vendor_platform_prop:s0
+dolby.ms12.input.format               u:object_r:vendor_platform_prop:s0
+ro.dolby.drcmode                      u:object_r:vendor_platform_prop:s0
+persist.audio.tune_ms.hdmiin          u:object_r:vendor_platform_prop:s0
+sys.optimization.debug                u:object_r:debug_prop:s0
+persist.audio.tune_ms.linein          u:object_r:vendor_platform_prop:s0
+persist.audio.tune_ms.atv             u:object_r:vendor_platform_prop:s0
+
+persist.odm.led.behaviour             u:object_r:system_prop:s0
+
+ro.vendor.amlogic.idme.model_name     u:object_r:vendor_aml_trigger_prop:s0
+#line 1 "device/amlogictv/common_t950x4/sepolicy/aml_plat/property_contexts"
+media.                  u:object_r:media_prop:s0
+ro.media.               u:object_r:media_prop:s0
+sys.media.              u:object_r:media_prop:s0
+sys.subtitle.           u:object_r:media_prop:s0
+ro.audio.               u:object_r:media_prop:s0
+ro.af.                  u:object_r:media_prop:s0
+persist.vendor.audio.   u:object_r:media_prop:s0
+persist.vendor.media.   u:object_r:media_prop:s0
+drm.                    u:object_r:media_prop:s0
+audio.                  u:object_r:audio_prop:s0
+ubootenv.               u:object_r:uboot_prop:s0
+ro.ubootenv.            u:object_r:uboot_prop:s0
+snd.                    u:object_r:tv_config_prop:s0
+tv.                     u:object_r:tv_prop:s0
+persist.tv.             u:object_r:tv_prop:s0
+persist.vendor.tv.      u:object_r:tv_prop:s0
+vendor.tv.              u:object_r:tv_prop:s0
+vendor.tv.dtv.          u:object_r:tv_prop:s0
+vendor.tv.dtv.cas.      u:object_r:tv_prop:s0
+vendor.tv.dtv.dmx.      u:object_r:tv_prop:s0
+vendor.tv.dtv.tf.       u:object_r:tv_prop:s0
+vendor.tv.dtv.dvr.      u:object_r:tv_prop:s0
+vendor.tv.dtv.dvr.mode         u:object_r:tv_prop:s0
+vendor.hwc.sideband_disable    u:object_r:tv_prop:s0
+sys.atv.support.stereo.audio       u:object_r:tv_prop:s0
+persist.sys.eco.mode.enable       u:object_r:tv_prop:s0
+ro.vendor.fos.dvbs.existed       u:object_r:tv_prop:s0
+vendor.media.           u:object_r:media_prop:s0
+bcmdl_status            u:object_r:bcmdl_prop:s0
+wc_transport            u:object_r:bluetooth_prop:s0
+rc_hidraw_fd            u:object_r:bluetooth_prop:s0
+ro.rfkilldisabled       u:object_r:bluetooth_prop:s0
+vendor.display-size     u:object_r:netflix_prop:s0
+vendor.netflix.state    u:object_r:netflix_prop:s0
+persist.vendor.hwc.keystone    u:object_r:vendor_persist_prop:s0
+persist.vendor.hwc.keystone.debug    u:object_r:vendor_persist_prop:s0
+ro.vendor.platform      u:object_r:vendor_platform_prop:s0
+persist.vendor.sys      u:object_r:vendor_persist_prop:s0
+vendor.sys              u:object_r:vendor_platform_prop:s0
+vendor.pq.db.ready      u:object_r:vendor_platform_prop:s0
+vendor.filesystem.      u:object_r:vendor_platform_prop:s0
+DynamicBacklight.enable     u:object_r:vendor_platform_prop:s0
+ro.vendor.app           u:object_r:vendor_app_prop:s0
+ro.net.pppoe		    u:object_r:net_pppoe_prop:s0
+persist.miracast.hdcp2  u:object_r:miracast_prop:s0
+sys.hardware.vsync u:object_r:optimization_prop:s0
+sys.optimization.ui.hw u:object_r:optimization_prop:s0
+sys.vsync.type u:object_r:optimization_prop:s0
+#line 1 "system/sepolicy/reqd_mask/property_contexts"
+# empty property_contexts file - this file is used to generate an empty
+# non-platform property context for devices without any property_contexts
+# customizations.

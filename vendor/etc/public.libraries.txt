@@ -1,0 +1,5 @@
+libsystemcontrol_jni.so
+libtv_jni.so
+libscreencontrol_jni.so
+libdtvkit_jni.so
+libsubtitlemanager_jni.so

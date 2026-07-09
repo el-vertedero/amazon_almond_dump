@@ -1,0 +1,31 @@
+<mixer>
+  <ctl name="Audio spdif mute" value="1" />
+
+  <path name="speaker">
+   <ctl name="TDMOUT_A Lane0 Mute Channel" value="0" />
+   <ctl name="AMP Maser Volume Mute" value="0" />
+  </path>
+
+  <path name="speaker_off">
+   <ctl name="TDMOUT_A Lane0 Mute Channel" value="3" />
+   <ctl name="AMP Maser Volume Mute" value="1" />
+  </path>
+
+  <path name="hdmi_arc">
+   <ctl name="Audio spdif mute" value="0" />
+  </path>
+
+  <path name="hdmi_arc_off">
+   <ctl name="Audio spdif mute" value="1" />
+  </path>
+
+  <path name="headphone">
+   <ctl name="Audio spdif mute" value="1" />
+  </path>
+
+  <path name="main_mic">
+  </path>
+
+  <path name="headset-mic">
+  </path>
+</mixer>

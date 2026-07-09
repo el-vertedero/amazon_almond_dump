@@ -1,0 +1,11 @@
+#
+# ADDITIONAL VENDOR DEFAULT PROPERTIES
+#
+ro.vndk.version=28
+ro.zygote=zygote32
+ro.logd.size.stats=64K
+log.tag.stats_log=I
+ro.adb.secure=1
+persist.sys.usb.config=mtp
+service.adb.tcp.port=5555
+persist.sys.amzn_drm.skip_mask=0x1c0

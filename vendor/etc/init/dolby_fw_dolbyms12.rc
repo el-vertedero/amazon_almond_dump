@@ -1,0 +1,35 @@
+# Copyright (c) 2020 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS
+
+on init
+    # Mount tmpfs
+    wait /vendor/lib/ms12 2
+    mount tmpfs tmpfs /vendor/lib/ms12 size=10240K,context=u:object_r:dolbyms12:s0 rw
+
+    # Extracting the Dolby MS12 library
+    #exec_background - root root -- /vendor/bin/dolby_fw_dolbyms12 /vendor/etc/ms12/libdolbyms12.so /vendor/lib/ms12/libdolbyms12.so
+    #exec - root root -- /vendor/bin/dolby_fw_dolbyms12 /product/lib/libdolbyms12.so /vendor/lib/ms12/libdolbyms12.so
+    start dolbyms12_init
+
+
+on property:ro.vendor.lib.libdolbyms12=1
+#on early-boot
+    chmod 644 /vendor/lib/ms12/libdolbyms12.so
+
+    # Changing access permission of the dev node used by libdolbyms12
+    wait /dev/dolby_fw 2
+    chown audioserver mediadrm /dev/dolby_fw
+    chmod 440 /dev/dolby_fw
+
+    # Let the partition be read-only
+    mount tmpfs tmpfs /vendor/lib/ms12 remount ro
+
+    # Set extended attribute in kernel space to bypass selinux neverallow restriction
+    # "chcon u:object_r:dolby_lib_file:s0 /vendor/lib/ms12/libdolbyms12.so"
+    insmod /vendor/lib/modules/amz_chcon.ko
+
+service dolbyms12_init /vendor/bin/dolbyms12_init.sh
+         user root
+         group root
+         oneshot
+         seclabel u:r:dolbyms12_init:s0

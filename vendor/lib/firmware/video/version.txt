@@ -1,0 +1,10 @@
+video_ucode.bin
+
+基于这个base版本：I284c975
+https://scgit.amlogic.com/#/c/135559/ 
+ucode (commit 54149c8f324f743db354c474e0618667cc93105f , Change-Id: I284c9750c118edc607ea72c8ff5a94d196dfc529)
+
+添加patch：
+https://scgit.amlogic.com/#/c/180615/ 
+https://scgit.amlogic.com/#/c/151491/
+https://scgit.amlogic.com/#/c/302426/

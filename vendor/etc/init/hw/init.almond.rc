@@ -1,0 +1,112 @@
+#import /system/etc/init/hw/hvt_register.rc
+
+on post-fs-data
+    start pq_db_decompress
+    start devcfg
+    verity_update_state
+    chown root system /proc/wol_enable
+    chmod 0664  /proc/wol_enable
+on init
+     export DOWNLOAD_CACHE /cache
+
+on fs
+    exec /system/bin/resize2fs -f /dev/block/data
+
+on boot
+    # check store mode status after factory reset
+    start check_storemode
+    # set ir protocol
+    setprop ro.odm.ir.protocol nec
+
+on property:sys.boot_completed=1
+     verity_update_state
+
+service pq_db_decompress /vendor/bin/pq_db_decompress.sh
+      class main
+      user root
+      group root
+      oneshot
+
+service tee_supplicant /vendor/bin/tee-supplicant
+ 	class core
+	oneshot
+ 	seclabel u:r:tee:s0
+
+# check and provision keys on dev board
+
+on property:vendor.sys.tee.need_remount=1
+     exec /system/bin/mkfs.ext4  /dev/block/tee
+     mount ext4 /dev/block/tee /mnt/vendor/tee
+     setprop sys.powerctl reboot
+
+on property:vold.post_fs_data_done=1
+    start tee_check
+
+on property:odm.hold.wakelock.idme=y
+    write /sys/power/wake_lock disable_str_idme
+
+service tee_check /vendor/bin/tee_check.sh
+     user root
+     disabled
+     oneshot
+     seclabel u:r:tee:s0
+
+
+
+
+# service to populate readonly property
+service devcfg /vendor/bin/devcfg.sh
+    group system
+    oneshot
+    disabled
+    seclabel u:r:devcfg:s0
+
+
+
+# check storemode status, clear usr_flags after factory reset
+service check_storemode /vendor/bin/set_storemode.sh 2
+    class main
+    group system
+    oneshot
+    disabled
+    seclabel u:r:set_storemode:s0
+
+service set_storemode /vendor/bin/set_storemode.sh 1
+    class main
+    group system
+    oneshot
+    disabled
+    seclabel u:r:set_storemode:s0
+
+service clear_storemode /vendor/bin/set_storemode.sh 0
+    class main
+    group system
+    oneshot
+    disabled
+    seclabel u:r:set_storemode:s0
+
+service set_usr_flags /vendor/bin/set_usr_flags.sh ${vendor.sys.storemode.usrflags}
+    class main
+    group system drmrpc
+    oneshot
+    disabled
+    seclabel u:r:set_userflag:s0
+
+on property:vendor.sys.storemode.set=1
+    start set_storemode
+
+on property:vendor.sys.storemode.clear=1
+    start clear_storemode
+
+on property:vendor.sys.storemode.usrflags=*
+    start set_usr_flags
+
+on early-fs
+    start early-devcfg
+
+service early-devcfg /vendor/bin/early-devcfg.sh
+    group system
+    oneshot
+    disabled
+    seclabel u:r:devcfg:s0
+

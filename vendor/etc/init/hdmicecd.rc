@@ -1,0 +1,7 @@
+on early-boot
+    start hdmicecd
+
+service hdmicecd /vendor/bin/hdmicecd
+    interface vendor.amlogic.hardware.hdmicec@1.0::IDroidHdmiCEC default
+    user root
+    group system

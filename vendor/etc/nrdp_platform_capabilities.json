@@ -1,0 +1,6 @@
+{
+  "hdrOutputType": "notApplicable",
+  "tunnelModeWithBTSetting": "enable",
+  "formatNotificationType": "suppressible",
+  "minVideoFramesForPlaybackStart":"50"
+}

@@ -1,0 +1,10 @@
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+on post-fs
+    wait /tvconfig/audio-policies 2
+    mount overlay overlay /odm/etc lowerdir=/odm/etc:/tvconfig/audio-policies:/vendor/etc,context=u:object_r:vendor_configs_file:s0
+    mount overlay overlay /vendor/lib/soundfx lowerdir=/product/lib/sound_effect:/vendor/lib/soundfx,context=u:object_r:vendor_file:s0
+

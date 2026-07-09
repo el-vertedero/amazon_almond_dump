@@ -1,0 +1,9 @@
+on post-fs
+   restorecon_recursive /param    #for android O
+   restorecon_recursive /mnt/vendor/param   #for android P
+
+service tvd /vendor/bin/tvserver
+   interface vendor.amlogic.hardware.tvserver@1.0::ITvServer default
+   class core
+   user root
+   group system root media audio mediadrm
