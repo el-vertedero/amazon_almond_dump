@@ -1,0 +1,9 @@
+
+ro.product.build.date=Tue May 23 02:55:50 UTC 2023
+ro.product.build.date.utc=1684810550
+ro.product.build.fingerprint=Amazon/almond/almond:9/PS7646.3550N/0028085968384:user/dev-keys
+#
+# ADDITIONAL PRODUCT PROPERTIES
+#
+ro.fireos.media.batch.size=50
+launcher.focusAnimationEnable=false

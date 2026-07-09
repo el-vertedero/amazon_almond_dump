@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2020 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<permissions>
+    <!-- By declaring the feature here
+         The api PackageManager.hasSystemFeature(String feature) will
+         return true if passed the feature name below.-->
+    <feature name="com.amazon.usb.debug"/>
+    <feature name="amazon.hardware.ultra_hd"/>
+    <feature name="amazon.hardware.usb_storage"/>
+    <feature name="amazon.hardware.optical_audio"/>
+    <feature name="amazon.hardware.headphone_audio"/>
+    <feature name="amazon.hardware.ethernet"/>
+    <feature name="amazon.hardware.adaptable_storage"/>
+    <feature name="amazon.hardware.external_storage"/>
+    <feature name="amazon.hardware.ir.extender.support" />
+    <feature name="com.amazon.hardware.always_hdr.supported" />
+    <feature name="com.amazon.always_sdr.supported" />
+    <feature name="amazon.software.screen_mirroring" />
+    <feature name="com.amazon.feature.security.camera.pip.enabled"/>
+    <feature name="com.amazon.broadcast_time_sync.enabled"/>
+    <feature name="com.amazon.ugs.enabled" />
+</permissions>
